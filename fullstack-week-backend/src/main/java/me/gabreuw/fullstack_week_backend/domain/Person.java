@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -28,9 +26,14 @@ public class Person implements Serializable {
     private String cpf;
     private String telephone;
     private String email;
+    private String birthDate;
 
     private Integer age;
 
-    private String birthDate;
+    private Boolean vaccinated;
+
+    @ManyToOne
+    @JoinColumn(name = "id_priority_group")
+    private PriorityGroup group;
 
 }

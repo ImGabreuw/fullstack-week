@@ -27,21 +27,23 @@ public class PersonService {
     }
 
     public Person update(Long id, Person person) {
-        Person personMapper = mapper(findById(id), person);
+        Person updatedPerson = updateData(id, person);
 
-        return repository.save(personMapper);
+        return repository.save(updatedPerson);
     }
 
-    public Person mapper(Person oldDate, Person updatedDate) {
-        oldDate.setName(updatedDate.getName());
-        oldDate.setCpf(updatedDate.getCpf());
-        oldDate.setTelephone(updatedDate.getTelephone());
-        oldDate.setTelephone(updatedDate.getTelephone());
-        oldDate.setEmail(updatedDate.getEmail());
-        oldDate.setAge(updatedDate.getAge());
-        oldDate.setBirthDate(updatedDate.getBirthDate());
+    public Person updateData(Long oldPersonId, Person newPerson) {
+        Person person = findById(oldPersonId);
 
-        return oldDate;
+        person.setName(newPerson.getName());
+        person.setCpf(newPerson.getCpf());
+        person.setTelephone(newPerson.getTelephone());
+        person.setTelephone(newPerson.getTelephone());
+        person.setEmail(newPerson.getEmail());
+        person.setAge(newPerson.getAge());
+        person.setBirthDate(newPerson.getBirthDate());
+
+        return person;
     }
 
 }

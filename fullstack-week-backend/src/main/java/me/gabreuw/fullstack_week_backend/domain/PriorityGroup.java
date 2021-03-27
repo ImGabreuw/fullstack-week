@@ -17,7 +17,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Data
 @EqualsAndHashCode(of = "id")
 @Entity
-public class PriorityGroups implements Serializable {
+public class PriorityGroup implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
